@@ -10,40 +10,28 @@ The framework is designed to support reproducible, transparent, and scientifical
 Land cover datasets derived from different sensors, classification algorithms, and temporal baselines often exhibit inconsistencies that can propagate uncertainty into downstream analyses (e.g., hydrological modeling, climate impact assessments, ecosystem monitoring).
 
 This project aims to:
-
-Quantify agreement between two categorical land cover products
-
-Identify systematic classification differences
-
-Provide statistically sound accuracy metrics for comparative analysis
+- Quantify agreement between two categorical land cover products
+- Identify systematic classification differences
+- Provide statistically sound accuracy metrics for comparative analysis
 
 The methodology follows best practices recommended in the remote sensing accuracy assessment literature (e.g., confusion matrix–based evaluation).
 
 ## Methodology
 The workflow implemented in this repository consists of the following steps:
-
-Raster ingestion
-Two categorical land cover GeoTIFF rasters (reference and comparison) are loaded using rasterio.
-
-Pixel-wise comparison
-Raster values are flattened and compared pixel by pixel to ensure a one-to-one correspondence.
-
-Confusion matrix computation
-A confusion matrix is generated, where rows represent reference classes and columns represent predicted classes.
-
-Accuracy metrics calculation
-The following metrics are derived:
-
-Overall Accuracy (OA)
-
-Cohen’s Kappa coefficient
-
-Producer’s Accuracy (PA)
-
-User’s Accuracy (UA)
-
-Output generation
-Results are exported as CSV tables and visualized using a confusion matrix heatmap.
+1.  Raster ingestion
+    Two categorical land cover GeoTIFF rasters (reference and comparison) are loaded using rasterio.
+2.  Pixel-wise comparison
+    Raster values are flattened and compared pixel by pixel to ensure a one-to-one correspondence.
+3.  Confusion matrix computation
+    A confusion matrix is generated, where rows represent reference classes and columns represent predicted classes.
+4.  Accuracy metrics calculation
+    The following metrics are derived:
+      - Overall Accuracy (OA)
+      - Cohen’s Kappa coefficient
+      - Producer’s Accuracy (PA)
+      - User’s Accuracy (UA)
+5.  Output generation
+    Results are exported as CSV tables and visualized using a confusion matrix heatmap.
 
 ## Repository Structure
 lc_intercomparison/
@@ -62,17 +50,12 @@ lc_intercomparison/
 └── github_installation.py
 
 ## Software Requirements
-Python ≥ 3.8
-
-numpy
-
-pandas
-
-rasterio
-
-matplotlib
-
-seaborn
+- Python ≥ 3.8
+- Numpy
+- Pandas
+- Rasterio
+- Matplotlib
+- Seaborn
 
 ## Installation
 Clone the repository:
@@ -87,43 +70,30 @@ Install dependencies:
 pip install numpy pandas rasterio matplotlib seaborn
 
 ## Usage
-### Edit the input paths in lc_intercomparison_full.py to point to your land cover raster datasets:
+Edit the input paths in lc_intercomparison_full.py to point to your land cover raster datasets:
+- Reference raster (e.g., ESA CCI)
+- Comparison raster (e.g., GLC_FCS30)
 
-Reference raster (e.g., ESA CCI)
+Run the analysis:
+python lc_accuracy/lc_intercomparison_full.py
 
-Comparison raster (e.g., GLC_FCS30)
-
-### Run the analysis:
-
-### python lc_accuracy/lc_intercomparison_full.py
-
-### All outputs will be saved automatically in the output/ directory.
+All outputs will be saved automatically in the output/ directory.
 
 ## Outputs
-### The framework produces:
-
-Confusion matrix (CSV) – class-by-class comparison
-
-Accuracy summary (CSV) – OA, Kappa, mean PA, mean UA
-
-Confusion matrix heatmap (PNG) – visual representation of agreement
-
+The framework produces:
+- Confusion matrix (CSV) – class-by-class comparison
+- Accuracy summary (CSV) – OA, Kappa, mean PA, mean UA
+- Confusion matrix heatmap (PNG) – visual representation of agreement
 These outputs are suitable for inclusion in reports, course submissions, and scientific manuscripts.
 
 ## Data Assumptions & Notes
-Input rasters must have identical:
-
-Projection
-
-Spatial resolution
-
-Extent
-
-No-data values should be handled prior to analysis
-
-Class harmonization (if needed) should be performed before running the script
+- Input rasters must have identical:
+  - Projection
+  - Spatial resolution
+  - Extent
+- No-data values should be handled prior to analysis
+- Class harmonization (if needed) should be performed before running the script
 
 ## Academic Context
-
 This project was developed as part of a PhD-level course in Geospatial Processing, with direct relevance to ongoing doctoral research on land cover change in Mediterranean basins.
 
