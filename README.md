@@ -34,6 +34,7 @@ The workflow implemented in this repository consists of the following steps:
     Results are exported as CSV tables and visualized using a confusion matrix heatmap.
 
 ## Repository Structure
+## 📂 Repository Structure
 lc_intercomparison/
 ├── lc_accuracy/                 # Core accuracy assessment modules
 │   ├── lc_intercomparison_full.py
