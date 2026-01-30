@@ -87,20 +87,20 @@ Install dependencies:
 pip install numpy pandas rasterio matplotlib seaborn
 
 ## Usage
-Edit the input paths in lc_intercomparison_full.py to point to your land cover raster datasets:
+### Edit the input paths in lc_intercomparison_full.py to point to your land cover raster datasets:
 
 Reference raster (e.g., ESA CCI)
 
 Comparison raster (e.g., GLC_FCS30)
 
-Run the analysis:
+### Run the analysis:
 
-python lc_accuracy/lc_intercomparison_full.py
+### python lc_accuracy/lc_intercomparison_full.py
 
-All outputs will be saved automatically in the output/ directory.
+### All outputs will be saved automatically in the output/ directory.
 
 ## Outputs
-The framework produces:
+### The framework produces:
 
 Confusion matrix (CSV) – class-by-class comparison
 
