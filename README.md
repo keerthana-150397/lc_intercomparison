@@ -34,7 +34,20 @@ The workflow implemented in this repository consists of the following steps:
     Results are exported as CSV tables and visualized using a confusion matrix heatmap.
 
 ## Repository Structure
-## 📂 Repository Structure
+lc_intercomparison/
+|├── lc_accuracy/                 # Core accuracy assessment modules
+|│   ├── lc_intercomparison_full.py
+|│   ├── utils.py
+|│   ├── test.py
+\│   └── __init__.py
+├── output/                      # Generated outputs (CSV, figures)
+│   ├── *_accuracy_summary_*.csv
+│   ├── *_cfm_*.csv
+│   └── *_cfm_htmap_*.png
+├── .gitignore
+├── LICENSE
+├── README.md
+└── github_installation.py
 
 ## Software Requirements
 - Python ≥ 3.8
