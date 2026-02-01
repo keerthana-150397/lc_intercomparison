@@ -89,7 +89,7 @@ if __name__ == "__main__":
     # ----------------------------
     cm_csv = os.path.join(output_subdir, "tevere_cfm_2000.csv")
     acc_csv = os.path.join(output_subdir, "tevere_accuracy_summary_2000.csv")
-    cm_png = os.path.join(output_subdir, "tevere_cfm_htmap_2000\.png")
+    cm_png = os.path.join(output_subdir, "tevere_cfm_htmap_2000.png")
 
     # ----------------------------
     # Load raster data
