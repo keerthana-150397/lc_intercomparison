@@ -82,8 +82,8 @@ Example data sources include:
 After downloading, place the raster files in a local `data/` directory with the following structure:
 
 data/
-├── reference_lc.tif      # Reference land cover raster
-└── comparison_lc.tif    # Comparison land cover raster
+├── reference_lc.tif  (Reference land cover raster)
+└── comparison_lc.tif  (Comparison land cover raster)
 
 Ensure that the input rasters:
 - Are in GeoTIFF (`.tif`) format
