@@ -1,10 +1,3 @@
-git config --global user.name "Keerthana Kirubakaran"
-git config --global user.email "keerthana.kirubakaran@gmail.com"
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/keerthana-150397/lc_intercomparison.git
-git push -u origin main
-
 import numpy as np 
 import pandas as pd
 import rasterio
