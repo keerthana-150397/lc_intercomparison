@@ -69,7 +69,29 @@ conda activate lc_intercomparison
 
 Install dependencies:
 pip install numpy pandas rasterio matplotlib seaborn
+## Data
 
+The `data/` directory is not tracked in this repository due to GitHub file size limitations and the large size of land cover raster datasets (GeoTIFF format).
+
+Users must obtain the required land cover data directly from the original data providers and store them locally.
+
+Example data sources include:
+- ESA Climate Change Initiative (CCI) Land Cover
+- GLC_FCS30 or other global/regional land cover products
+
+After downloading, place the raster files in a local `data/` directory with the following structure:
+
+data/
+├── reference_lc.tif      # Reference land cover raster
+└── comparison_lc.tif    # Comparison land cover raster
+
+Ensure that the input rasters:
+- Are in GeoTIFF (`.tif`) format
+- Have identical projection, spatial resolution, and spatial extent
+- Use harmonized class definitions
+- Have no-data values handled prior to analysis
+
+The paths to these raster files must be updated manually in `lc_intercomparison_full.py` before running the analysis.
 ## Usage
 Edit the input paths in lc_intercomparison_full.py to point to your land cover raster datasets:
 - Reference raster (e.g., ESA CCI)
