@@ -1,0 +1,16 @@
+# Large raster data
+data/
+*.tif
+*.tiff
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment
+.env
+data/
+*.tif
+*.tiff
+__pycache__/
+*.pyc
