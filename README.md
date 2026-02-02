@@ -47,7 +47,7 @@ def load_raster(path):
 def compute_confusion_matrix(y_true, y_pred, labels=None):
     y_true = np.array(y_true).flatten()
     y_pred = np.array(y_pred).flatten()
-
+    
     if labels is None:
         labels = np.unique(np.concatenate([y_true, y_pred]))
 
