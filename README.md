@@ -34,6 +34,7 @@ These libraries are used for:
 -os: Managing paths and directories
 
 2. Loading Raster Data
+   
 def load_raster(path):
     with rasterio.open(path) as src:
         return src.read(1)
@@ -42,6 +43,7 @@ def load_raster(path):
 - Used for both the reference raster (ESA CCI) and comparison raster (GLC).
 
 3. Computing the Confusion Matrix
+   
 def compute_confusion_matrix(y_true, y_pred, labels=None):
     y_true = np.array(y_true).flatten()
     y_pred = np.array(y_pred).flatten()
@@ -65,6 +67,7 @@ def compute_confusion_matrix(y_true, y_pred, labels=None):
 4. Accuracy Metrics
    
 a) Overall Accuracy (OA)
+
 def overall_accuracy(confusion_matrix):
     cm = confusion_matrix.values
     return np.trace(cm) / cm.sum()
@@ -72,6 +75,7 @@ def overall_accuracy(confusion_matrix):
 - Percentage of correctly classified pixels (sum of diagonal / total pixels)
 
 b) Kappa Coefficient
+
 def kappa_coefficient(confusion_matrix):
     cm = confusion_matrix.values
     total = cm.sum()
@@ -85,6 +89,7 @@ def kappa_coefficient(confusion_matrix):
 - Values range from -1 to 1, with 1 indicating perfect agreement
 
 c) Producer’s Accuracy (PA)
+
 def producers_accuracy(confusion_matrix):
     cm = confusion_matrix.values
     correct = np.diag(cm)
@@ -94,6 +99,7 @@ def producers_accuracy(confusion_matrix):
 - Probability that a reference pixel is correctly classified (omission error)
 
 d) User’s Accuracy (UA)
+
 def users_accuracy(confusion_matrix):
     cm = confusion_matrix.values
     correct = np.diag(cm)
