@@ -114,6 +114,7 @@ def users_accuracy(confusion_matrix):
 - Visualize Confusion Matrix: Heatmap generated with seaborn and saved as PNG.
 
 6. Output Files
+
 | File                   | Description                                            |
 | ---------------------- | ------------------------------------------------------ |
 | `cfm.csv`              | Confusion matrix (row = reference, column = predicted) |
