@@ -122,6 +122,7 @@ def users_accuracy(confusion_matrix):
 
 
 ## Repository Structure
+
 lc_intercomparison/
 ├── lc_accuracy/
 │   ├── lc_intercomparison_full.py  # Main analysis script
