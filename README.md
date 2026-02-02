@@ -69,7 +69,7 @@ def overall_accuracy(confusion_matrix):
     cm = confusion_matrix.values
     return np.trace(cm) / cm.sum()
 
--Percentage of correctly classified pixels (sum of diagonal / total pixels)
+- Percentage of correctly classified pixels (sum of diagonal / total pixels)
 
 b) Kappa Coefficient
 def kappa_coefficient(confusion_matrix):
@@ -81,8 +81,8 @@ def kappa_coefficient(confusion_matrix):
     pe = np.sum(row_marginals * col_marginals) / (total ** 2)
     return (po - pe) / (1 - pe)
 
--Measures agreement accounting for chance
--Values range from -1 to 1, with 1 indicating perfect agreement
+- Measures agreement accounting for chance
+- Values range from -1 to 1, with 1 indicating perfect agreement
 
 c) Producer’s Accuracy (PA)
 def producers_accuracy(confusion_matrix):
@@ -91,7 +91,7 @@ def producers_accuracy(confusion_matrix):
     reference_total = cm.sum(axis=1)
     return correct / reference_total
 
--Probability that a reference pixel is correctly classified (omission error)
+- Probability that a reference pixel is correctly classified (omission error)
 
 d) User’s Accuracy (UA)
 def users_accuracy(confusion_matrix):
@@ -100,18 +100,18 @@ def users_accuracy(confusion_matrix):
     classified_total = cm.sum(axis=0)
     return correct / classified_total
 
--Probability that a pixel classified into a category actually belongs to that category (commission error)
+- Probability that a pixel classified into a category actually belongs to that category (commission error)
 
 5. Main Workflow
 
--Input Paths: Paths to ESA CCI and GLC rasters are defined.
--Output Directory: An output/ folder is created automatically.
--Load Rasters: load_raster() reads both datasets.
--Flatten Rasters: Arrays are flattened for pixel-wise comparison.
--Compute Confusion Matrix: Using compute_confusion_matrix().
--Compute Accuracy Metrics: OA, Kappa, PA, UA, mean PA, and mean UA.
--Save Outputs: Confusion matrix and accuracy summary saved as CSV.
--Visualize Confusion Matrix: Heatmap generated with seaborn and saved as PNG.
+- Input Paths: Paths to ESA CCI and GLC rasters are defined.
+- Output Directory: An output/ folder is created automatically.
+- Load Rasters: load_raster() reads both datasets.
+- Flatten Rasters: Arrays are flattened for pixel-wise comparison.
+- Compute Confusion Matrix: Using compute_confusion_matrix().
+- Compute Accuracy Metrics: OA, Kappa, PA, UA, mean PA, and mean UA.
+- Save Outputs: Confusion matrix and accuracy summary saved as CSV.
+- Visualize Confusion Matrix: Heatmap generated with seaborn and saved as PNG.
 
 6. Output Files
 | File                   | Description                                            |
@@ -148,9 +148,9 @@ lc_intercomparison/
 - Seaborn
 
 ## Data Notes
--Rasters must have identical projection, resolution, and extent
--No-data values must be handled prior to analysis
--Classes should be harmonized across datasets
+- Rasters must have identical projection, resolution, and extent
+- No-data values must be handled prior to analysis
+- Classes should be harmonized across datasets
 The `data/` directory is not tracked in this repository due to GitHub file size limitations and the large size of land cover raster datasets (GeoTIFF format).
 
 Users must obtain the required land cover data directly from the original data providers and store them locally.
