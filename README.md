@@ -38,8 +38,8 @@ def load_raster(path):
     with rasterio.open(path) as src:
         return src.read(1)
 
--Reads a raster file and returns a 2D NumPy array of pixel values.
--Used for both the reference raster (ESA CCI) and comparison raster (GLC).
+- Reads a raster file and returns a 2D NumPy array of pixel values.
+- Used for both the reference raster (ESA CCI) and comparison raster (GLC).
 
 3. Computing the Confusion Matrix
 def compute_confusion_matrix(y_true, y_pred, labels=None):
