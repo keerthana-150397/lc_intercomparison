@@ -63,6 +63,7 @@ def compute_confusion_matrix(y_true, y_pred, labels=None):
 -Returns a pandas DataFrame representing the confusion matrix
 
 4. Accuracy Metrics
+   
 a) Overall Accuracy (OA)
 def overall_accuracy(confusion_matrix):
     cm = confusion_matrix.values
