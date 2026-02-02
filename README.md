@@ -57,10 +57,10 @@ def compute_confusion_matrix(y_true, y_pred, labels=None):
 
     return pd.DataFrame(cm, index=labels, columns=labels)
 
--Flattens rasters into 1D arrays for pixel-wise comparison
--Determines unique land cover classes if labels not provided
--Counts the number of pixels classified into each category (rows = true, columns = predicted)
--Returns a pandas DataFrame representing the confusion matrix
+- Flattens rasters into 1D arrays for pixel-wise comparison
+- Determines unique land cover classes if labels not provided
+- Counts the number of pixels classified into each category (rows = true, columns = predicted)
+- Returns a pandas DataFrame representing the confusion matrix
 
 4. Accuracy Metrics
    
