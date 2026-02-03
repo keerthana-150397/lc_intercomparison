@@ -87,7 +87,7 @@ if __name__ == "__main__":
     # ----------------------------
     # Output folder
     # ----------------------------
-    output_dir = r"C:\Users\user\OneDrive - Politecnico di Milano\PhD_Keerthana\subjects\Geospatial processing\project"
+    output_dir = r"C:\Users\user\projects\lc_intercomparison"
     output_subdir = os.path.join(output_dir, "output")  # subfolder inside your project folder
     os.makedirs(output_subdir, exist_ok=True)
 
