@@ -25,6 +25,7 @@ import rasterio
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import sys
 
 These libraries are used for:
 -numpy: Array manipulation and numerical calculations
