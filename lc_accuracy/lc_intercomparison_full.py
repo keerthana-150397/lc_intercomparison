@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/main
 import numpy as np 
 import pandas as pd
 import rasterio
@@ -72,8 +77,13 @@ if __name__ == "__main__":
     # ----------------------------
     # Input paths
     # ----------------------------
+<<<<<<< HEAD
     cci_path = r"C:\Users\user\OneDrive - Politecnico di Milano\00GLANCE_Forest cover\data\basin_data\Tevere_ESA_1995.tif"
     glc_path = r"C:\Users\user\OneDrive - Politecnico di Milano\00GLANCE_Forest cover\data\basin_data\Tevere_GLC_1995.tif"
+=======
+    cci_path = r"C:\Users\user\projects\lc_intercomparison\data\Tevere_ESA_2000.tif"
+    glc_path = r"C:\Users\user\projects\lc_intercomparison\data\Tevere_GLC_2000_1.tif"
+>>>>>>> origin/main
 
     # ----------------------------
     # Output folder
@@ -85,9 +95,15 @@ if __name__ == "__main__":
     # ----------------------------
     # Output file paths
     # ----------------------------
+<<<<<<< HEAD
     cm_csv = os.path.join(output_subdir, "tevere_cfm_1995.csv")
     acc_csv = os.path.join(output_subdir, "tevere_accuracy_summary_1995.csv")
     cm_png = os.path.join(output_subdir, "tevere_cfm_htmap_1995.png")
+=======
+    cm_csv = os.path.join(output_subdir, "tevere_cfm_2000.csv")
+    acc_csv = os.path.join(output_subdir, "tevere_accuracy_summary_2000.csv")
+    cm_png = os.path.join(output_subdir, "tevere_cfm_htmap_2000.png")
+>>>>>>> origin/main
 
     # ----------------------------
     # Load raster data
@@ -153,4 +169,8 @@ if __name__ == "__main__":
 
     print("\n✅ All outputs saved successfully in:")
     print(output_subdir)
+<<<<<<< HEAD
  
+=======
+ 
+>>>>>>> origin/main
