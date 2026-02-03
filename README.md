@@ -131,6 +131,9 @@ def users_accuracy(confusion_matrix):
 ## Repository Structure
 
 lc_intercomparison/
+├── data/
+│   ├── reference_lc.tif  (Reference land cover raster)
+│   ├── comparison_lc.tif  (Comparison land cover raster)
 ├── lc_accuracy/
 │   ├── lc_intercomparison_full.py  # Main analysis script
 │   ├── utils.py
@@ -159,15 +162,6 @@ lc_intercomparison/
 - Rasters must have identical projection, resolution, and extent
 - No-data values must be handled prior to analysis
 - Classes should be harmonized across datasets
-The `data/` directory is not tracked in this repository due to GitHub file size limitations and the large size of land cover raster datasets (GeoTIFF format).
-
-Users must obtain the required land cover data directly from the original data providers and store them locally.
-
-Example data sources include:
-- ESA Climate Change Initiative (CCI) Land Cover
-- GLC_FCS30 or other global/regional land cover products
-
-After downloading, place the raster files in a local `data/` directory with the following structure:
 
 data/
 ├── reference_lc.tif  (Reference land cover raster)
