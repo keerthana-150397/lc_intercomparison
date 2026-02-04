@@ -132,22 +132,19 @@ def users_accuracy(confusion_matrix):
 ## Repository Structure
 lc_intercomparison/
 ├── data/
-│ ├── reference_lc.tif # Reference land cover raster
-│ └── comparison_lc.tif # Comparison land cover raster
-│
+│   ├── reference_lc.tif
+│   └── comparison_lc.tif
 ├── lc_accuracy/
-│ ├── confusion_matrix.py # Confusion matrix computation
-│ ├── accuracy_metrics.py # Accuracy metrics (OA, Kappa, PA, UA)
-│ ├── raster_io.py # Raster loading and validation
-│ ├── main.py # Main analysis script
-│ ├── test.py # Unit tests for accuracy assessment
-│ └── init.py
-│
+│   ├── confusion_matrix.py
+│   ├── accuracy_metrics.py
+│   ├── raster_io.py
+│   ├── main.py
+│   ├── test.py
+│   └── __init__.py
 ├── output/
-│ ├── accuracy_summary.csv # Accuracy metrics summary
-│ ├── cfm.csv # Confusion matrix
-│ └── cfm_htmap.png # Confusion matrix heatmap
-│
+│   ├── accuracy_summary.csv
+│   ├── cfm.csv
+│   └── cfm_htmap.png
 ├── .gitignore
 ├── LICENSE
 ├── README.md
