@@ -130,7 +130,6 @@ def users_accuracy(confusion_matrix):
 
 
 ## Repository Structure
-## Repository Structure
 lc_intercomparison/
 ├── data/
 │ ├── reference_lc.tif # Reference land cover raster
