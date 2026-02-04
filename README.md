@@ -130,27 +130,31 @@ def users_accuracy(confusion_matrix):
 
 
 ## Repository Structure
-'''
+
+```text
 lc_intercomparison/
-├── data/
-│   ├── reference_lc.tif
-│   └── comparison_lc.tif
-├── lc_accuracy/
-│   ├── confusion_matrix.py
-│   ├── accuracy_metrics.py
-│   ├── raster_io.py
-│   ├── main.py
-│   ├── test.py
-│   └── __init__.py
-├── output/
-│   ├── accuracy_summary.csv
-│   ├── cfm.csv
-│   └── cfm_htmap.png
-├── .gitignore
-├── LICENSE
-├── README.md
-└── github_installation.py
-'''
+|-- data/
+|   |-- reference_lc.tif
+|   `-- comparison_lc.tif
+|
+|-- lc_accuracy/
+|   |-- confusion_matrix.py
+|   |-- accuracy_metrics.py
+|   |-- raster_io.py
+|   |-- main.py
+|   |-- test.py
+|   `-- __init__.py
+|
+|-- output/
+|   |-- accuracy_summary.csv
+|   |-- cfm.csv
+|   `-- cfm_htmap.png
+|
+|-- .gitignore
+|-- LICENSE
+|-- README.md
+`-- github_installation.py
+```
 
 ## Software Requirements
 - Python ≥ 3.8
