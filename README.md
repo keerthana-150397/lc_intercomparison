@@ -130,6 +130,7 @@ def users_accuracy(confusion_matrix):
 
 
 ## Repository Structure
+'''
 lc_intercomparison/
 ├── data/
 │   ├── reference_lc.tif
@@ -149,7 +150,7 @@ lc_intercomparison/
 ├── LICENSE
 ├── README.md
 └── github_installation.py
-
+'''
 
 ## Software Requirements
 - Python ≥ 3.8
