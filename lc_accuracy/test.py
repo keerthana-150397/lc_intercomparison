@@ -1,14 +1,8 @@
-import sys
-import os
-
-# Make sure the main module is importable
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
-
 import numpy as np
 import pandas as pd
 
-from lc_intercomparison_full import (
-    compute_confusion_matrix,
+from confusion_matrix import compute_confusion_matrix
+from accuracy_metrics import (
     overall_accuracy,
     kappa_coefficient,
     producers_accuracy,
@@ -16,107 +10,121 @@ from lc_intercomparison_full import (
 )
 
 # --------------------------------------------------
-# Confusion matrix test
+# Synthetic test data
 # --------------------------------------------------
-def test_confusion_matrix_basic():
-    y_true = [0, 0, 1, 1, 2, 2]
-    y_pred = [0, 1, 1, 1, 2, 0]
 
+def create_test_arrays():
+    """
+    Creates small synthetic reference and predicted arrays
+    with known expected results.
+    """
+    y_true = np.array([
+        1, 1, 1, 2, 2, 3
+    ])
+
+    y_pred = np.array([
+        1, 2, 1, 2, 3, 3
+    ])
+
+    return y_true, y_pred
+
+
+# --------------------------------------------------
+# Test confusion matrix
+# --------------------------------------------------
+
+def test_confusion_matrix():
+    y_true, y_pred = create_test_arrays()
     cm = compute_confusion_matrix(y_true, y_pred)
 
     expected = pd.DataFrame(
-        [[1, 1, 0],
-         [0, 2, 0],
-         [1, 0, 1]],
-        index=[0, 1, 2],
-        columns=[0, 1, 2]
+        [[2, 1, 0],
+         [0, 1, 1],
+         [0, 0, 1]],
+        index=[1, 2, 3],
+        columns=[1, 2, 3]
     )
 
-    pd.testing.assert_frame_equal(cm, expected)
+    assert cm.equals(expected), "Confusion matrix values are incorrect"
 
 
 # --------------------------------------------------
-# Overall accuracy test
+# Test overall accuracy
 # --------------------------------------------------
+
 def test_overall_accuracy():
-    cm = pd.DataFrame(
-        [[5, 1],
-         [2, 6]],
-        index=[0, 1],
-        columns=[0, 1]
-    )
+    y_true, y_pred = create_test_arrays()
+    cm = compute_confusion_matrix(y_true, y_pred)
 
     oa = overall_accuracy(cm)
-    expected_oa = (5 + 6) / (5 + 1 + 2 + 6)
+    expected_oa = 4 / 6  # 4 correct out of 6 pixels
 
-    assert np.isclose(oa, expected_oa)
+    assert np.isclose(oa, expected_oa), "Overall accuracy calculation failed"
 
 
 # --------------------------------------------------
-# Kappa coefficient test
+# Test kappa coefficient
 # --------------------------------------------------
+
 def test_kappa_coefficient():
-    cm = pd.DataFrame(
-        [[40, 10],
-         [5, 45]],
-        index=[0, 1],
-        columns=[0, 1]
-    )
-
-    total = cm.values.sum()
-    po = (40 + 45) / total
-
-    row_marg = cm.sum(axis=1).values
-    col_marg = cm.sum(axis=0).values
-    pe = np.sum(row_marg * col_marg) / (total ** 2)
-
-    expected_kappa = (po - pe) / (1 - pe)
+    y_true, y_pred = create_test_arrays()
+    cm = compute_confusion_matrix(y_true, y_pred)
 
     kappa = kappa_coefficient(cm)
+    expected_kappa = 0.5
 
-    assert np.isclose(kappa, expected_kappa)
+    assert np.isclose(kappa, expected_kappa, atol=1e-6), \
+        "Kappa coefficient calculation failed"
+
 
 
 # --------------------------------------------------
-# Producer's Accuracy test
+# Test Producer’s Accuracy
 # --------------------------------------------------
+
 def test_producers_accuracy():
-    cm = pd.DataFrame(
-        [[8, 2],
-         [1, 9]],
-        index=[0, 1],
-        columns=[0, 1]
-    )
+    y_true, y_pred = create_test_arrays()
+    cm = compute_confusion_matrix(y_true, y_pred)
 
     pa = producers_accuracy(cm)
-
     expected_pa = np.array([
-        8 / (8 + 2),
-        9 / (1 + 9)
+        2 / 3,  # class 1
+        1 / 2,  # class 2
+        1 / 1   # class 3
     ])
 
-    assert np.allclose(pa, expected_pa)
+    assert np.allclose(pa, expected_pa), \
+        "Producer’s accuracy calculation failed"
 
 
 # --------------------------------------------------
-# User's Accuracy test
+# Test User’s Accuracy
 # --------------------------------------------------
+
 def test_users_accuracy():
-    cm = pd.DataFrame(
-        [[8, 2],
-         [1, 9]],
-        index=[0, 1],
-        columns=[0, 1]
-    )
+    y_true, y_pred = create_test_arrays()
+    cm = compute_confusion_matrix(y_true, y_pred)
 
     ua = users_accuracy(cm)
-
     expected_ua = np.array([
-        8 / (8 + 1),
-        9 / (2 + 9)
+        2 / 2,  # class 1
+        1 / 2,  # class 2
+        1 / 2   # class 3
     ])
 
-    assert np.allclose(ua, expected_ua)
+    assert np.allclose(ua, expected_ua), \
+        "User’s accuracy calculation failed"
 
 
-print("✅ All tests passed successfully!")
+# --------------------------------------------------
+# Run tests manually
+# --------------------------------------------------
+
+if __name__ == "__main__":
+    test_confusion_matrix()
+    test_overall_accuracy()
+    test_kappa_coefficient()
+    test_producers_accuracy()
+    test_users_accuracy()
+
+    print("✅ All tests passed successfully!")
